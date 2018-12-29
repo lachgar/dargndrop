@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="jquery-3.2.1.min.js" type="text/javascript"></script>
+    <!--mettreicivos propres liens -->
+
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
+
+    <script>
+        //$.event.props.push('dataTransfer');
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min)) + min;
+        }
+
+    </script>
+    <script>
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+
+        function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);
+        }
+
+        function drop(ev) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("text");
+            ev.target.appendChild(document.getElementById(data));
+        }
+        var tab = Array;
+        function remplir() {
+            for (var i = 1; i <= 10; i++) {
+                tab[i] = getRandomInt(10, 100);
+                $("#drag" + i).html(tab[i]);
+            }
+        }
+        $(document).ready(function () {
+            remplir();
+        });
+    </script>
+    <style>
+        .slot {
+            width: 52px;
+            height: 52px;
+            padding: 2px;
+            margin: 11px;
+            border: 1px solid #aaaaaa;
+            background-color: #ffffff;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .drag {
+            width: 50px;
+            height: 50px;
+            border: 1px solid #aaaaaa;
+            background-color: #eeeeee;
+            text-align: center;
+            font-size: 25px;
+            line-height: 52px;
+        }
+
+        .ct {
+            height: 100px;
+            margin: 10px;
+            line-height: 100px;
+            text-align: center;
+
+        }
+
+        .normal {
+
+            background-color: #1583CC;
+
+        }
+
+        .good {
+            background-color: #00867F;
+
+        }
+
+        .wrong {
+
+            background-color: #eeaaaa;
+        }
+
+        [draggable=true] {
+            cursor: move;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="page-header">
+            <h3>Drag and Drop</h3>
+        </div>
+
+        <!-- Le tableau initial -->
+
+        <div class="ct normal" id="start">
+            <div class="slot" ondrop="drop(event)" ondragover="allowDrop(event)" id="div1">
+                <div id="drag1" class="drag" draggable="true" ondragstart="drag(event)">30</div>
+            </div>
+            <div class="slot" ondrop="drop(event)" ondragover="allowDrop(event)" id="div2">
+                <div id="drag2" class="drag" draggable="true" ondragstart="drag(event)">5</div>
+            </div>
+            <div class="slot" ondrop="drop(event)" ondragover="allowDrop(event)" id="div3">
+                <div id="drag3" class="drag" draggable="true" ondragstart="drag(event)">20</div>
+            </div>
+            <div class="slot" ondrop="drop(event)" ondragover="allowDrop(event)" id="div4">
+                <div id="drag4" class="drag" draggable="true" ondragstart="drag(event)">22</div>
+            </div>
+            <div class="slot" ondrop="drop(event)" ondragover="allowDrop(event)" id="div5">
+                <div id="drag5" class="drag" draggable="true" ondragstart="drag(event)">0</div>
+            </div>
+            <div class="slot" ondrop="drop(event)" ondragover="allowDrop(event)" id="div6">
+                <div id="drag6" class="drag" draggable="true" ondragstart="drag(event)">8</div>
+            </div>
+            <div class="slot" ondrop="drop(event)" ondragover="allowDrop(event)" id="div7">
+                <div id="drag7" class="drag" draggable="true" ondragstart="drag(event)">3</div>
+            </div>
+            <div class="slot" ondrop="drop(event)" ondragover="allowDrop(event)" id="div8">
+                <div id="drag8" class="drag" draggable="true" ondragstart="drag(event)">11</div>
+            </div>
+            <div class="slot" ondrop="drop(event)" ondragover="allowDrop(event)" id="div9">
+                <div id="drag9" class="drag" draggable="true" ondragstart="drag(event)">1</div>
+            </div>
+            <div class="slot" ondrop="drop(event)" ondragover="allowDrop(event)" id="div10">
+                <div id="drag10" class="drag" draggable="true" ondragstart="drag(event)">15</div>
+            </div>
+        </div>
+
+        <!-- Le tableau trié -->
+
+        <div class="ct good" id="end">
+            <div class="slot" ondrop="drop(event)" ondragover="allowDrop(event)" id="div11"></div>
+            <div class="slot" ondrop="drop(event)" ondragover="allowDrop(event)" id="div12"></div>
+            <div class="slot" ondrop="drop(event)" ondragover="allowDrop(event)" id="div13"></div>
+            <div class="slot" ondrop="drop(event)" ondragover="allowDrop(event)" id="div14"></div>
+            <div class="slot" ondrop="drop(event)" ondragover="allowDrop(event)" id="div15"></div>
+            <div class="slot" ondrop="drop(event)" ondragover="allowDrop(event)" id="div16"></div>
+            <div class="slot" ondrop="drop(event)" ondragover="allowDrop(event)" id="div17"></div>
+            <div class="slot" ondrop="drop(event)" ondragover="allowDrop(event)" id="div18"></div>
+            <div class="slot" ondrop="drop(event)" ondragover="allowDrop(event)" id="div19"></div>
+            <div class="slot" ondrop="drop(event)" ondragover="allowDrop(event)" id="div20"></div>
+        </div>
+    </div>
+</body>
+
+</html>
